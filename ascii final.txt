@@ -1,0 +1,39 @@
+package ascii3;   
+public class ascii3 {  
+    public static void main(String[] args) {  
+        System.out.printf("%1$-8s %2$-10s \n", "Decimal", "ASCII");   
+        int min = 1; 
+        int max = 128;   
+        for (int i = min; i < max; i++) {    
+            char ch = (char) i;  
+            String display = "";   
+            if (Character.isWhitespace(ch)) {   
+                switch (ch) {  
+                    case '\r':  
+                        display = "\\r";  
+                        break;  
+                    case '\t':  
+                        display = "\\t";  
+                        break;  
+                    case '\n':  
+                        display = "\\n";  
+                        break;  
+                    case '\f':  
+                        display = "\\f";  
+                        break;  
+                    case ' ':  
+                        display = "space";  
+                        break;  
+                    default:  
+                        display = "whitespace";  
+                        break;  
+                }   
+            } else if (Character.isISOControl(ch)) {  
+                display = "control";  
+            } else {  
+                display = Character.toString(ch);  
+            }  
+            System.out.printf("%1$-8d %2$-10s \n", i, display, Integer.toHexString(i));  
+        }  
+    }  
+}  
